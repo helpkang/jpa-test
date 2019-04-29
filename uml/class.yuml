@@ -1,5 +1,8 @@
 // {type:class}
 // {direction:leftToRight}
+// {generate:true}
+
+
 
 [네트워크|-ID]<>-cas*>[CA조직]
 
