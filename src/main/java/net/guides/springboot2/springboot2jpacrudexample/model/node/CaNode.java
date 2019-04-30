@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("ca")
 public class CaNode extends Node{
 
+	private static final long serialVersionUID = 1L;
 	
 	public CaNode() {
 

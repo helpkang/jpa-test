@@ -1,4 +1,4 @@
-package net.guides.springboot2.springboot2jpacrudexample.model.node;
+package net.guides.springboot2.springboot2jpacrudexample.model.config;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -13,13 +13,12 @@ import javax.persistence.Table;
 import net.guides.springboot2.springboot2jpacrudexample.model.StringObject;
 
 @Entity
-@Table(name = "hl_node")
+@Table(name = "hl_node_config")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "node_type")
-public abstract class Node extends StringObject{
-	
+public abstract class NodeConfig extends StringObject{
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
@@ -27,11 +26,11 @@ public abstract class Node extends StringObject{
 	@Column(nullable = false)
 	private String name;
 
-	public Node() {
+	public NodeConfig() {
 
 	}
 
-	public Node(String name) {
+	public NodeConfig(String name) {
 		this.name = name;
 	}
 

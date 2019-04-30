@@ -18,6 +18,9 @@ import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
 
 @MappedSuperclass
 public abstract class Org extends StringObject{
+
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;

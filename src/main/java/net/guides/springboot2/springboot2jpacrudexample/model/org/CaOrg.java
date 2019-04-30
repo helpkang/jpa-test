@@ -17,11 +17,8 @@ import net.guides.springboot2.springboot2jpacrudexample.model.node.CliNode;
 @Entity
 @Table(name="hl_ca_org")
 public class CaOrg extends Org{
-	// @Id
-	// @GeneratedValue(strategy = GenerationType.TABLE)
-	// private long id;
-
-
+	
+	private static final long serialVersionUID = 1L;
 
 	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name = "hl_ca_org_cli_node")

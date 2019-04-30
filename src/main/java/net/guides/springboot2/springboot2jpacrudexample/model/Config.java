@@ -14,12 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
+import net.guides.springboot2.springboot2jpacrudexample.model.config.NodeConfig;
 
 
 @Entity
-@Table(name="hl_host")
-public class Host extends StringObject {
+@Table(name="hl_config")
+public class Config extends StringObject {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -30,20 +30,27 @@ public class Host extends StringObject {
 	@Column(nullable = false)
 	private String name;
 
+	@Column(nullable = false)
+	private String version;
+
+	@Column(nullable = false)
+	private String type;
+
 	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "host_id")
-	private List<Node> nodes = new ArrayList<>();
+	@JoinColumn(name = "config_id")
+	private List<NodeConfig> nodes = new ArrayList<>();
 
-	public Host() {}
+	public Config() {}
 
-	public Host(String name) {
+	public Config(String name) {
 		this.name = name;
 	}
 
-
+	
 	public long getId() {
 		return id;
 	}
+
 
 	public void setId(long id) {
 		this.id = id;
@@ -54,17 +61,40 @@ public class Host extends StringObject {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
 
-	public List<Node> getNodes() {
+	public String getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+	public List<NodeConfig> getNodes() {
 		return nodes;
 	}
 
-	public void setNodes(List<Node> nodes) {
+
+	public void setNodes(List<NodeConfig> nodes) {
 		this.nodes = nodes;
 	}
+	
 
 }

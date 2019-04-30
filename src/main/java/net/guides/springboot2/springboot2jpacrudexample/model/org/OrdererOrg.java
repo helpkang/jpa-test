@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Table(name="hl_orderer_org")
 public class OrdererOrg extends Org{
 
+	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "order_org_id")

@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -23,6 +24,8 @@ import net.guides.springboot2.springboot2jpacrudexample.model.org.CaOrg;
 @Entity
 @Table(name="hl_network")
 public class Network extends StringObject {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column
@@ -39,6 +42,10 @@ public class Network extends StringObject {
 	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "hl_network_ca_org")
 	private CaOrg caOrg;
+
+	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "config_id")
+	private Config config;
 
 	public Network() {}
 

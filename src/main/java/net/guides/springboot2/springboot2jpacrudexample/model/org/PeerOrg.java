@@ -8,6 +8,8 @@ import javax.persistence.Table;
 @Table(name="hl_peer_org")
 public class PeerOrg extends Org{
 	
+	private static final long serialVersionUID = 1L;
+	
 	public PeerOrg() {}
 
 	public PeerOrg(String name) {

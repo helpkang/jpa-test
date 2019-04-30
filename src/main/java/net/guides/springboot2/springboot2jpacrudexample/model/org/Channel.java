@@ -17,13 +17,14 @@ import javax.persistence.Table;
 
 import net.guides.springboot2.springboot2jpacrudexample.model.StringObject;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
-import net.guides.springboot2.springboot2jpacrudexample.model.node.PeerNode;
-import net.guides.springboot2.springboot2jpacrudexample.model.org.PeerOrg;
 
 
 @Entity
 @Table(name="hl_channel")
 public class Channel extends StringObject {
+
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
