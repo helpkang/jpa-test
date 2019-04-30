@@ -7,9 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-// @MappedSuperclass
-@Entity
-@Table
+@MappedSuperclass
 public class CliNode extends Node{
 	
 	

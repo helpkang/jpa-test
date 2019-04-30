@@ -7,11 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee extends StringObject{
 
 	private long id;
 	private String firstName;
@@ -61,9 +60,5 @@ public class Employee {
 		this.emailId = emailId;
 	}
 
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this);
-	}
 	
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -35,9 +36,6 @@ public class CaOrg extends Org{
 	// private ArrayList<PeerOrg> peerOrgs = new ArrayList<>();
 	
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="ca_org_node")
-	private List<CaNode> nodes = new ArrayList<>();
 
 	public CaOrg() {}
 
@@ -45,10 +43,6 @@ public class CaOrg extends Org{
 		super(name);
 	}
 
-	
-	// @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	// @JoinColumn(name = "org_id")
-	// private ArrayList<CaNode> nodes = new ArrayList<>();
 
 
 	public CliNode getCliNode() {

@@ -15,14 +15,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
 
 
 @Entity
 @Table
-public class Host {
+public class Host extends StringObject {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -30,8 +29,8 @@ public class Host {
 	@Column(nullable = false)
 	private String name;
 
-	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "host_node")
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "host_id")
 	private List<Node> nodes = new ArrayList<>();
 
 	public Host() {}
@@ -58,10 +57,6 @@ public class Host {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this);
-	}
 
 	public List<Node> getNodes() {
 		return nodes;

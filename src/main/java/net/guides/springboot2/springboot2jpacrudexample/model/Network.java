@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -27,7 +26,7 @@ import net.guides.springboot2.springboot2jpacrudexample.model.org.Org;
 
 @Entity
 @Table
-public class Network {
+public class Network extends StringObject {
 	
 	@Id
 	@Column
@@ -77,11 +76,6 @@ public class Network {
 		this.hosts = hosts;
 	}
 
-
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this);
-	}
 
 
 	public CaOrg getCaOrg() {

@@ -7,9 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-// @MappedSuperclass
-@Entity
-@Table
+@MappedSuperclass
+// @Entity
+// @Table
 public class PeerNode extends Node{
 	
 	public PeerNode() {

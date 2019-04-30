@@ -1,5 +1,7 @@
 package net.guides.springboot2.springboot2jpacrudexample;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,20 @@ public class ApplicationTests {
 		setCaOrg(network);
 
 		repositoris.save(network);
-		System.out.println(network);
+		System.out.println("save===>"+network);
+		find();
+	}
+
+	private void find() {
+		System.out.println(repositoris.findAll());
+		System.out.println("count===>"+repositoris.count());
+		// Optional<Network> network = repositoris.findById(1L);
+		// System.out.println("read===>"+network.get());
+		// if(!network.isPresent()) throw new RuntimeException("network key 1L not exist!");
+		// CliNode cliNode = network.get().getCaOrg().getCliNode();
+		// if(cliNode == null){
+		// 	throw new RuntimeException("cli node not exist!");
+		// }
 	}
 
 	private void setHost(Network network) {
