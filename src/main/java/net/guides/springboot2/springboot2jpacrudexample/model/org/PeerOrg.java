@@ -1,12 +1,11 @@
 package net.guides.springboot2.springboot2jpacrudexample.model.org;
 
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 // @MappedSuperclass
 @Entity
-@Table
+@Table(name="hl_peer_org")
 public class PeerOrg extends Org{
 
 	// @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)

@@ -16,16 +16,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import net.guides.springboot2.springboot2jpacrudexample.model.org.CaOrg;
-import net.guides.springboot2.springboot2jpacrudexample.model.org.Org;
 
 // import net.guides.springboot2.springboot2jpacrudexample.model.org.CaOrg;
 
 @Entity
-@Table
+@Table(name="hl_network")
 public class Network extends StringObject {
 	
 	@Id
@@ -40,9 +36,8 @@ public class Network extends StringObject {
 	@JoinColumn(name = "network_id")
 	private List<Host> hosts = new ArrayList<>();
 
-	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "network_ca_org")
-	// private Org caOrg;
+	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "hl_network_ca_org")
 	private CaOrg caOrg;
 
 	public Network() {}

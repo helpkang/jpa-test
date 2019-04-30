@@ -11,16 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
 
 
 @Entity
-@Table
+@Table(name="hl_host")
 public class Host extends StringObject {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +27,7 @@ public class Host extends StringObject {
 	@Column(nullable = false)
 	private String name;
 
-	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "host_id")
 	private List<Node> nodes = new ArrayList<>();
 

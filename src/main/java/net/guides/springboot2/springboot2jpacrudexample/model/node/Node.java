@@ -13,9 +13,10 @@ import javax.persistence.Table;
 import net.guides.springboot2.springboot2jpacrudexample.model.StringObject;
 
 @Entity
-@Table
+@Table(name = "hl_node")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "node_type")
+// @MappedSuperclass
 public abstract class Node extends StringObject{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)

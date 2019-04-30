@@ -5,26 +5,18 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import net.guides.springboot2.springboot2jpacrudexample.model.StringObject;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
 
-@Entity
-@Table
-@Inheritance(strategy = InheritanceType.JOINED)
-// @DiscriminatorColumn(name = "org_type")
+
+@MappedSuperclass
 public abstract class Org extends StringObject{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
@@ -33,15 +25,17 @@ public abstract class Org extends StringObject{
 	@Column(nullable = false)
 	private String name;
 
-
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="org_id")
+	private List<Node> nodes = new ArrayList<>();
 	// @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	// @JoinTable(name = "org_node")
 	// private List<T> nodes = new ArrayList<>();
 
-	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="ca_org_ca_node")
+	// @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	// @JoinColumn(name="org_id")
-	private List<Node> nodes = new ArrayList<>();
+	// @JoinTable(name="org_node")
+	// private List<Node> nodes = new ArrayList<>();
 
 
 	public Org() {
@@ -70,7 +64,6 @@ public abstract class Org extends StringObject{
 		this.name = name;
 	}
 
-
 	public List<Node> getNodes() {
 		return nodes;
 	}
@@ -78,6 +71,16 @@ public abstract class Org extends StringObject{
 	public void setNodes(List<Node> nodes) {
 		this.nodes = nodes;
 	}
+
+
+
+	// public List<Node> getNodes() {
+	// 	return nodes;
+	// }
+
+	// public void setNodes(List<Node> nodes) {
+	// 	this.nodes = nodes;
+	// }
 
 
 
