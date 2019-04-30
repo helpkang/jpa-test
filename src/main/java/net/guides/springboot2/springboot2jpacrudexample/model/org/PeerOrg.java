@@ -7,10 +7,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="hl_peer_org")
 public class PeerOrg extends Org{
-
-	// @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	// @JoinColumn(name = "org_id")
-	// private ArrayList<PeerNode> nodes = new ArrayList<>();
 	
 	public PeerOrg() {}
 

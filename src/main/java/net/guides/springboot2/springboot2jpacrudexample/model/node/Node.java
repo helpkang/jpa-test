@@ -16,7 +16,6 @@ import net.guides.springboot2.springboot2jpacrudexample.model.StringObject;
 @Table(name = "hl_node")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "node_type")
-// @MappedSuperclass
 public abstract class Node extends StringObject{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
