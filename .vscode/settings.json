@@ -1,4 +1,4 @@
 {
-    "java.dependency.syncWithFolderExplorer": false,
+    "java.dependency.syncWithFolderExplorer": true,
     "java.configuration.updateBuildConfiguration": "automatic"
 }

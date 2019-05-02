@@ -12,11 +12,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import net.guides.springboot2.springboot2jpacrudexample.model.node.CaNode;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.CliNode;
 
 @Entity
 @Table(name="hl_ca_org")
-public class CaOrg extends Org{
+public class CaOrg extends Org<CaNode>{
 	
 	private static final long serialVersionUID = 1L;
 

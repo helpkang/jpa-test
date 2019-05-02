@@ -1,5 +1,6 @@
 package net.guides.springboot2.springboot2jpacrudexample.model.org;
 
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
 
 
 @MappedSuperclass
-public abstract class Org extends StringObject{
+public abstract class Org<T extends Node> extends StringObject{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -31,14 +32,6 @@ public abstract class Org extends StringObject{
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="org_id")
 	private List<Node> nodes = new ArrayList<>();
-	// @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	// @JoinTable(name = "org_node")
-	// private List<T> nodes = new ArrayList<>();
-
-	// @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	// @JoinColumn(name="org_id")
-	// @JoinTable(name="org_node")
-	// private List<Node> nodes = new ArrayList<>();
 
 
 	public Org() {
@@ -75,30 +68,16 @@ public abstract class Org extends StringObject{
 		this.nodes = nodes;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transient
+	public List<T> getNodes_() {
+		return (List<T>)getNodes();
+	}
 
-
-	// public List<Node> getNodes() {
-	// 	return nodes;
-	// }
-
-	// public void setNodes(List<Node> nodes) {
-	// 	this.nodes = nodes;
-	// }
-
-
-
-	// public List<T> getNodes() {
-	// 	return nodes;
-	// }
-
-
-	// public void setNodes(List<T> nodes) {
-	// 	this.nodes = nodes;
-	// }
-
-	// public void addHost(T node) {
-	// 	this.nodes.add(node);
-	// }
-
+	@SuppressWarnings("unchecked")
+	@Transient
+	public void setNodes_(List<T> nodes) {
+		setNodes((List<Node>) nodes);
+	}
 
 }

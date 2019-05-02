@@ -10,10 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import net.guides.springboot2.springboot2jpacrudexample.model.node.OrdererNode;
+
 // @MappedSuperclass
 @Entity
 @Table(name="hl_orderer_org")
-public class OrdererOrg extends Org{
+public class OrdererOrg extends Org<OrdererNode>{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -37,7 +39,5 @@ public class OrdererOrg extends Org{
 	public void setChannels(List<Channel> channels) {
 		this.channels = channels;
 	}
-
-	
 
 }
