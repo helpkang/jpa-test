@@ -44,7 +44,7 @@ public class Network extends StringObject {
 	private CaOrg caOrg;
 
 	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "network_id")
+	@JoinColumn(name = "config_id")
 	private Config config;
 
 	public Network() {}
