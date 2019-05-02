@@ -41,6 +41,7 @@ public class ApplicationTests {
 		System.out.println("save===>"+network);
 		
 	}
+	
 	@Transactional
 	@Test
 	public void read() {
@@ -55,8 +56,8 @@ public class ApplicationTests {
 
 
 	public void find() {
-		repositoris.findAll();
-		// System.out.println(repositoris.findAll());
+		// repositoris.findAll();
+		System.out.println("findAll=>"+repositoris.findAll());
 		System.out.println("count===>"+repositoris.count());
 		Optional<Network> network = repositoris.findById(1L);
 		System.out.println("read===>"+network.get());
