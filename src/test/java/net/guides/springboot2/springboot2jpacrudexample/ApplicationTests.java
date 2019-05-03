@@ -23,7 +23,7 @@ import net.guides.springboot2.springboot2jpacrudexample.repository.NetworkReposi
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@FixMethodOrder(MethodSorters.DEFAULT)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ApplicationTests {
 
 	@Autowired
