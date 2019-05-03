@@ -37,7 +37,7 @@ public class Network extends StringObject {
 
 	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "config_copy_id")
-	private ConfigCopy config;
+	private ConfigCopy copyConfig;
 
 	public Network() {}
 
