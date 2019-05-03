@@ -18,7 +18,6 @@ import net.guides.springboot2.springboot2jpacrudexample.model.Network;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.CaNode;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.CliNode;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
-import net.guides.springboot2.springboot2jpacrudexample.model.org.CaOrg;
 import net.guides.springboot2.springboot2jpacrudexample.repository.NetworkRepository;
 
 @RunWith(SpringRunner.class)
@@ -76,10 +75,9 @@ public class ApplicationTests {
 	}
 
 	private void setCaOrg(Network network) {
-		CaOrg caorg = new CaOrg("ca node");
-		CliNode cliNode = new CliNode("cli node");
-		caorg.setCliNode(cliNode);
-		network.setCaOrg(caorg);
+		// CliNode cliNode = new CliNode("cli node");
+		// caorg.setCliNode(cliNode);
+		// network.setCaOrg(caorg);
 	}
 
 }
