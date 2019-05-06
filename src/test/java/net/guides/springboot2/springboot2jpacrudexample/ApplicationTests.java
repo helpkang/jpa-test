@@ -16,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import net.guides.springboot2.springboot2jpacrudexample.model.Host;
 import net.guides.springboot2.springboot2jpacrudexample.model.Network;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.CaNode;
-import net.guides.springboot2.springboot2jpacrudexample.model.node.CliNode;
 import net.guides.springboot2.springboot2jpacrudexample.model.node.Node;
 import net.guides.springboot2.springboot2jpacrudexample.repository.NetworkRepository;
 
