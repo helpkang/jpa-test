@@ -19,7 +19,7 @@ import lombok.Data;
 @Data
 public abstract class Node {
 	
-	private static final long serialVersionUID = 1L;
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)

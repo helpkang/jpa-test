@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 public class CaNodeConfig extends NodeConfig{
 
 	
-	private static final long serialVersionUID = 1L;
+	
 
 	public CaNodeConfig() {
 

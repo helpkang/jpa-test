@@ -27,7 +27,7 @@ import lombok.ToString;
 @Data
 public class Network  {
 	
-	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@Column

@@ -27,7 +27,7 @@ import lombok.ToString;
 @Data
 public class Host {
 
-	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -18,7 +18,7 @@ import lombok.Data;
 @DiscriminatorColumn(name = "node_type")
 @Data
 public abstract class NodeConfigCopy {
-	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)

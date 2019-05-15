@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("cli")
 public class CliNode extends Node{
 	
-	private static final long serialVersionUID = 1L;
+	
 	
 	public CliNode() {
 

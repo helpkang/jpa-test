@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("peer")
 public class PeerNode extends Node{
 	
-	private static final long serialVersionUID = 1L;
+	
 
 	public PeerNode() {
 

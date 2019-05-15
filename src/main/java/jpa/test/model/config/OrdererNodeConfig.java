@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("orderer")
 public class OrdererNodeConfig extends NodeConfig{
 
-	private static final long serialVersionUID = 1L;
+	
 	
 	public OrdererNodeConfig() {
 
