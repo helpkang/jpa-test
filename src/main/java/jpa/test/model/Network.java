@@ -45,7 +45,7 @@ public class Network  {
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany( cascade = CascadeType.ALL)//, mappedBy = "network")
 	@JoinColumn(name = "network_id")
 	private List<Host> hosts = new ArrayList<>();
 

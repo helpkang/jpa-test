@@ -1,5 +1,6 @@
 package jpa.test;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -41,29 +42,31 @@ public class ApplicationTests {
 		addOrg(network);
 
 		repositoris.save(network);
-		System.out.println("save===>"+network);
-		
+		System.out.println("save===>" + network);
+
 	}
-	
+
 	@Transactional
 	@Test
 	public void read() {
-		try{
+		try {
 
 			find();
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	}
 
+	}
 
 	public void find() {
 		// repositoris.findAll();
-		System.out.println("findAll=>"+repositoris.findAll());
-		System.out.println("count===>"+repositoris.count());
+		System.out.println("findAll=>" + repositoris.findAll());
+		System.out.println("count===>" + repositoris.count());
 		Optional<Network> network = repositoris.findById(1L);
-		System.out.println("read===>"+network.get());
+		System.out.println("read===>" + network.get());
+		List<Host> hosts = network.get().getHosts();
+		System.out.println("hosts=>"+hosts.get(0));
+		System.out.println("host,network"+hosts.get(0).getNetwork());
 		// if(!network.isPresent()) throw new RuntimeException("network key 1L not exist!");
 		// CliNode cliNode = network.get().getCaOrg().getCliNode();
 		// if(cliNode == null){
