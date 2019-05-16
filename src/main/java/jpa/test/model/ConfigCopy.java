@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -44,7 +45,7 @@ public class ConfigCopy  {
 	private String type;
 
 	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "config_id")
+	@JoinColumn(name = "copy_config_id")
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
@@ -58,6 +59,12 @@ public class ConfigCopy  {
 	private Config config;
 
 
+	// @JsonIgnore
+    // @EqualsAndHashCode.Exclude
+    // @ToString.Exclude
+	// @OneToOne(mappedBy = "copyConfig")
+	// @PrimaryKeyJoinColumn
+	// private ConfigCopy copyConfig;
 	
 
 }

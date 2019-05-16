@@ -122,7 +122,6 @@ public class ApplicationTests {
 		channel.getPeerOrgs().add(peerOrg);
 
 		peerOrg.getNodes().forEach(peerNode->{
-			System.out.println("peerNode==>"+ peerNode);
 			channel.getPeerNodes().add(peerNode);
 		});
 	

@@ -20,7 +20,6 @@ import lombok.ToString;
 @Entity
 @Table(name="hl_orderer_org")
 @Data
-@EqualsAndHashCode(callSuper=true)
 public class OrdererOrg extends Org<OrdererNode>{
 
 	
