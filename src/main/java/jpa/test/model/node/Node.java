@@ -19,24 +19,11 @@ import lombok.Data;
 @Data
 public abstract class Node {
 	
-	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(nullable = false)
 	private String name;
-
-	public Node() {
-
-	}
-
-	public Node(String name) {
-		this.name = name;
-	}
-
-
-
 
 }

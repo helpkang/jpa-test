@@ -27,14 +27,4 @@ public abstract class NodeConfigCopy {
 	@Column(nullable = false)
 	private String name;
 
-	public NodeConfigCopy() {
-
-	}
-
-	public NodeConfigCopy(String name) {
-		this.name = name;
-	}
-
-
-
 }

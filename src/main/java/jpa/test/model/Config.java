@@ -48,13 +48,5 @@ public class Config  {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
 	private List<NodeConfig> nodes = new ArrayList<>();
-
-	public Config() {}
-
-	public Config(String name) {
-		this.name = name;
-	}
-
 	
-
 }

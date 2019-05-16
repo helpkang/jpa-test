@@ -7,15 +7,5 @@ import javax.persistence.Entity;
 @DiscriminatorValue("ca")
 public class CaNodeConfigCopy extends NodeConfigCopy{
 
-	
-	
-
-	public CaNodeConfigCopy() {
-
-	}
-
-	public CaNodeConfigCopy(String name) {
-		super(name);
-	}
 
 }

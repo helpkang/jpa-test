@@ -7,12 +7,4 @@ import javax.persistence.Entity;
 @DiscriminatorValue("peer")
 public class PeerNodeConfigCopy extends NodeConfigCopy{
 	
-	
-	public PeerNodeConfigCopy() {
-	}
-
-	public PeerNodeConfigCopy(String name) {
-		super(name);
-	}
-
 }

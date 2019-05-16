@@ -1,18 +1,16 @@
-package jpa.test.model;
+package jpa.test.model.org;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,27 +20,22 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 
-@Entity
-@Table(name="hl_host")
 @Data
-public class Host {
-
-	
-	
+@MappedSuperclass
+public abstract class Org{
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(nullable = false)
 	private String name;
 
-	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "host_id")
+
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-	private Set<Node> nodes = new HashSet<>();
-
-
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="org_id")
+	private List<Node> nodes = new ArrayList<>();
 
 }

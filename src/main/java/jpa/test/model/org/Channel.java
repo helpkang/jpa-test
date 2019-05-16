@@ -1,4 +1,4 @@
-package jpa.test.model;
+package jpa.test.model.org;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,26 +10,22 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jpa.test.model.configcopy.NodeConfigCopy;
+import jpa.test.model.node.Node;
+import jpa.test.model.node.PeerNode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-
 @Entity
-@Table(name="hl_config_copy")
+@Table(name="hl_channel")
 @Data
-public class ConfigCopy  {
-
-	
-	
+public class Channel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -37,27 +33,24 @@ public class ConfigCopy  {
 	@Column(nullable = false)
 	private String name;
 
-	@Column(nullable = false)
-	private String version;
 
-	@Column(nullable = false)
-	private String type;
-
-	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "config_id")
+	//PeerNode 여야하는데 안된다 ㅎ
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-	private List<NodeConfigCopy> nodes = new ArrayList<>();
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="hl_channel_peer_node")
+	private List<Node> peerNodes = new ArrayList<>();
 
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "config_id")
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-	private Config config;
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="hl_channel_peer_org")
+	private List<PeerOrg> peerOrgs = new ArrayList<>();
 
-
-	
+	public void addPeerNode(PeerNode peerNode){
+		getPeerNodes().add(peerNode);
+	}
 
 }

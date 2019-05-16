@@ -27,12 +27,4 @@ public abstract class NodeConfig {
 	@Column(nullable = false)
 	private String name;
 
-	public NodeConfig() {
-
-	}
-
-	public NodeConfig(String name) {
-		this.name = name;
-	}
-
 }

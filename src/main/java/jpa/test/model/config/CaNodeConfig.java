@@ -7,15 +7,4 @@ import javax.persistence.Entity;
 @DiscriminatorValue("ca")
 public class CaNodeConfig extends NodeConfig{
 
-	
-	
-
-	public CaNodeConfig() {
-
-	}
-
-	public CaNodeConfig(String name) {
-		super(name);
-	}
-
 }

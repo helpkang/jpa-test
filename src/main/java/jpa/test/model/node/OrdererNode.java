@@ -7,14 +7,4 @@ import javax.persistence.Entity;
 @DiscriminatorValue("orderer")
 public class OrdererNode extends Node{
 
-	
-	
-	public OrdererNode() {
-
-	}
-
-	public OrdererNode(String name) {
-		super(name);
-	}
-
 }

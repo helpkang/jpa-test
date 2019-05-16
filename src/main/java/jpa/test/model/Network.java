@@ -17,6 +17,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jpa.test.model.org.OrdererOrg;
+import jpa.test.model.org.PeerOrg;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -37,23 +39,34 @@ public class Network  {
 	@Column(nullable = false)
 	private String name;
 	
+
+	@JsonIgnore
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "network_id")
 	private List<Host> hosts = new ArrayList<>();
 
-
-	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "config_copy_id")
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "network_id")
+	private List<OrdererOrg> orderOrgs = new ArrayList<>();
+
+	@JsonIgnore
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "network_id")
+	private List<PeerOrg> peerOrgs = new ArrayList<>();
+
+
+	@JsonIgnore
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "config_copy_id")
 	private ConfigCopy copyConfig;
-
-	public Network() {}
-
-	public Network(String name) {
-		this.name = name;
-	}
-
 
 }

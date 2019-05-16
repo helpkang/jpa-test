@@ -6,15 +6,5 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("cli")
 public class CliNode extends Node{
-	
-	
-	
-	public CliNode() {
-
-	}
-
-	public CliNode(String name) {
-		super(name);
-	}
 
 }
