@@ -21,7 +21,7 @@ import lombok.ToString;
 @Table(name="hl_orderer_org")
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class OrdererOrg extends Org<OrdererNode>{
+public class OrdererOrg extends Org{
 
 	
 	@JsonIgnore
@@ -33,5 +33,11 @@ public class OrdererOrg extends Org<OrdererNode>{
 
 
 	
+	@JsonIgnore
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="orderer_org_id")
+	private Set<OrdererNode> nodes = new HashSet<>();
 
 }

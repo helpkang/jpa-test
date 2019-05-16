@@ -21,20 +21,13 @@ import lombok.ToString;
 
 @Data
 @MappedSuperclass
-public abstract class Org<T>{
+public abstract class Org{
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(nullable = false)
 	private String name;
 
-
-	@JsonIgnore
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="org_id")
-	private Set<T> nodes = new HashSet<>();
 
 }
