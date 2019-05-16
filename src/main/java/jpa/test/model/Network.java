@@ -1,7 +1,7 @@
 package jpa.test.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,7 +33,7 @@ public class Network  {
 	
 	@Id
 	@Column
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable = false)
@@ -45,21 +45,21 @@ public class Network  {
     @ToString.Exclude
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "network_id")
-	private List<Host> hosts = new ArrayList<>();
+	private Set<Host> hosts = new HashSet<>();
 
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "network_id")
-	private List<OrdererOrg> orderOrgs = new ArrayList<>();
+	private Set<OrdererOrg> orderOrgs = new HashSet<>();
 
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "network_id")
-	private List<PeerOrg> peerOrgs = new ArrayList<>();
+	private Set<PeerOrg> peerOrgs = new HashSet<>();
 
 
 	@JsonIgnore

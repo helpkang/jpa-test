@@ -1,7 +1,7 @@
 package jpa.test.model.org;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jpa.test.model.node.Node;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -22,9 +21,9 @@ import lombok.ToString;
 
 @Data
 @MappedSuperclass
-public abstract class Org{
+public abstract class Org<T>{
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(nullable = false)
@@ -36,6 +35,6 @@ public abstract class Org{
     @ToString.Exclude
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="org_id")
-	private List<Node> nodes = new ArrayList<>();
+	private Set<T> nodes = new HashSet<>();
 
 }

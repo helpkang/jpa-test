@@ -1,7 +1,7 @@
 package jpa.test.model.org;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,7 +16,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jpa.test.model.node.Node;
 import jpa.test.model.node.PeerNode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -40,17 +39,14 @@ public class Channel {
     @ToString.Exclude
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="hl_channel_peer_node")
-	private List<Node> peerNodes = new ArrayList<>();
+	private Set<PeerNode> peerNodes = new HashSet<>();
 
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="hl_channel_peer_org")
-	private List<PeerOrg> peerOrgs = new ArrayList<>();
+	private Set<PeerOrg> peerOrgs = new HashSet<>();
 
-	public void addPeerNode(PeerNode peerNode){
-		getPeerNodes().add(peerNode);
-	}
 
 }

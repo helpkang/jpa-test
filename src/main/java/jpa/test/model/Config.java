@@ -1,7 +1,7 @@
 package jpa.test.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -47,6 +47,6 @@ public class Config  {
 	@JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-	private List<NodeConfig> nodes = new ArrayList<>();
+	private Set<NodeConfig> nodes = new HashSet<>();
 	
 }

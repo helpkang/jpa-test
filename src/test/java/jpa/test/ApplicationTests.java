@@ -105,9 +105,9 @@ public class ApplicationTests {
 		
 		network.getHosts().get(0).getNodes().forEach(node->{
 			if(node instanceof OrdererNode){
-				ordererOrg.getNodes().add(node);
+				ordererOrg.getNodes().add((OrdererNode)node);
 			}else if(node instanceof PeerNode){
-				peerOrg.getNodes().add(node);
+				peerOrg.getNodes().add((PeerNode)node);
 			}
 		});
 		
@@ -121,9 +121,9 @@ public class ApplicationTests {
 		channel.setName("channel1");
 		channel.getPeerOrgs().add(peerOrg);
 
-		peerOrg.getNodes().forEach((peerNode)->{
+		peerOrg.getNodes().forEach(peerNode->{
 			System.out.println("peerNode==>"+ peerNode);
-			channel.addPeerNode((PeerNode)peerNode);
+			channel.getPeerNodes().add(peerNode);
 		});
 	
 	}
